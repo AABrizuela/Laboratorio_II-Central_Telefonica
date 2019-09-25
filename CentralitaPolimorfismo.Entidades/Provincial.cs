@@ -33,25 +33,46 @@ namespace CentralitaPolimorfismo.Entidades
         #region METODOS
         private float CalcularCosto()
         {
+            float retorno = 0;
+
             switch (_franjaHoraria)
             {
                 case Franja.Franja_1:
                     retorno = this.Duracion * 0.99f;
                     break;
+
                 case Franja.Franja_2:
                     retorno = this.Duracion * 1.25f;
                     break;
+
                 case Franja.Franja_3:
                     retorno = this.Duracion * 0.66f;
                     break;
-                default:
-                    break;
             }
+            return retorno;
         }
 
         protected override string Mostrar()
         {
-            StringBuilder
+            StringBuilder palabra = new StringBuilder();
+            palabra.Append(base.Mostrar());
+            palabra.Append(" - Franja Horaria: ");
+            palabra.Append(this._franjaHoraria);
+            palabra.Append(" - Costo Llamada: ");
+            palabra.Append(this.CostoLlamada);
+            return palabra.ToString();
+        }
+        #endregion
+
+        #region SOBRECARGAS
+        public override bool Equals(object obj)
+        {
+            return obj is Franja;
+        }
+
+        public override string ToString()
+        {
+            return this.Mostrar();
         }
         #endregion
     }

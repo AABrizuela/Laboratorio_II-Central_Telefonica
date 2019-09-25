@@ -47,18 +47,22 @@ namespace CentralitaPolimorfismo.Entidades
         protected virtual string Mostrar()
         {
             StringBuilder palabra = new StringBuilder();
+            
             palabra.Append("Origen: ");
             palabra.Append(this._nroOrigen);
-            palabra.Append(" - Destino: ");
+            palabra.AppendLine();
+            palabra.Append("Destino: ");
             palabra.Append(this._nroDestino);
-            palabra.Append(" - Duracion: ");
+            palabra.AppendLine();
+            palabra.Append("Duracion: ");
             palabra.Append(this._duracion);
+
             return palabra.ToString();
         }
 
-        public int OrdenarPorDuracion()
+        public int OrdenarPorDuracion(Llamada uno, Llamada dos)
         {
-            return 0;
+            return string.Compare(uno._duracion.ToString(), uno._duracion.ToString());
         }
         #endregion
 
@@ -67,7 +71,17 @@ namespace CentralitaPolimorfismo.Entidades
         {
             if(!Object.Equals(uno, null) && !Object.Equals(dos, null))
             {
-                return true;
+                if(Local.Equals(uno, dos) || Provincial.Equals(uno, dos))
+                {
+                    if(uno._nroOrigen == dos._nroOrigen && uno._nroDestino == dos._nroDestino)
+                    {
+                        return true;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
             }
             return false;
         }
