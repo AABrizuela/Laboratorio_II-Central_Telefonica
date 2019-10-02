@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ECC1563E-121C-46BB-8332-208FF66B8E7A}</ProjectGuid>
+    <ProjectGuid>{8ADCBD0B-8079-4742-B59E-5C0496241FD1}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CentralitaPoliformismo.Consola</RootNamespace>
-    <AssemblyName>CentralitaPoliformismo.Consola</AssemblyName>
+    <RootNamespace>Centralita_WF</RootNamespace>
+    <AssemblyName>Centralita_WF</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,11 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CentralitaPolimorfismo.Entidades">
-      <HintPath>..\CentralitaPolimorfismo.Entidades\bin\Debug\CentralitaPolimorfismo.Entidades.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,11 +45,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frm_Centralita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Centralita.Designer.cs">
+      <DependentUpon>Frm_Centralita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Llamada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Llamada.Designer.cs">
+      <DependentUpon>Frm_Llamada.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Frm_Centralita.resx">
+      <DependentUpon>Frm_Centralita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Llamada.resx">
+      <DependentUpon>Frm_Llamada.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CentralitaTelefonica\CentralitaTelefonica.csproj">
+      <Project>{03386e18-a1dd-4ec6-867a-84ea443064bc}</Project>
+      <Name>CentralitaTelefonica</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

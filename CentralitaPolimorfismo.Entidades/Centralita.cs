@@ -89,17 +89,29 @@ namespace CentralitaPolimorfismo.Entidades
             }
             return retorno;
         }
+
+        public void OrdenarLlamadas()
+        {
+            Llamada auxiliar = this._listaDeLlamadas.First();
+            if(!Object.Equals(auxiliar, null))
+            {
+                this._listaDeLlamadas.Sort(auxiliar.OrdenarPorDuracion);
+            }
+        }
         #endregion
 
         #region SOBRECARGAS
-        //public override string ToString()
-        //{
-        //    foreach(Llamada item in _listaDeLlamadas)
-        //    {
-                
-        //    }
-        //    return retorno;
-        //}
+        public override string ToString()
+        {
+            string cadena = "";
+
+            foreach(Llamada auxLlamada in _listaDeLlamadas)
+            {
+                cadena += auxLlamada.ToString();
+            }
+
+            return cadena;
+        }
 
         public static bool operator ==(Centralita central, Llamada nuevaLlamada)
         {
@@ -124,13 +136,13 @@ namespace CentralitaPolimorfismo.Entidades
 
         public static Centralita operator +(Centralita central, Llamada nuevaLlamada)
         {
-            if(central != nuevaLlamada)
+            if(central == nuevaLlamada)
             {
-                central.AgregarLlamada(nuevaLlamada);
+                Console.WriteLine("ERROR");                
             }
             else
             {
-                Console.WriteLine("ERROR");
+                central.AgregarLlamada(nuevaLlamada);
             }
 
             return central;

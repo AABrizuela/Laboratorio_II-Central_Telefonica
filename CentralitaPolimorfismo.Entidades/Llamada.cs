@@ -56,13 +56,28 @@ namespace CentralitaPolimorfismo.Entidades
             palabra.AppendLine();
             palabra.Append("Duracion: ");
             palabra.Append(this._duracion);
+            
 
             return palabra.ToString();
         }
 
         public int OrdenarPorDuracion(Llamada uno, Llamada dos)
         {
-            return string.Compare(uno._duracion.ToString(), uno._duracion.ToString());
+            int ret = 0;
+
+            if (!Object.Equals(uno, null) && !Object.Equals(dos, null))
+            {
+                if(uno.Duracion > dos.Duracion)
+                {
+                    ret = 1;
+                }
+                else if(uno.Duracion < dos.Duracion)
+                {
+                    ret = -1;
+                }                
+            }
+
+            return ret;
         }
         #endregion
 

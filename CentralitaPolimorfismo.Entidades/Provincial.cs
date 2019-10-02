@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CentralitaPolimorfismo.Entidades
 {
-    class Provincial : Llamada
+    public class Provincial : Llamada
     {
         Franja _franjaHoraria;
 
@@ -18,7 +18,8 @@ namespace CentralitaPolimorfismo.Entidades
         #endregion
 
         #region CONSTRUCTORES
-        public Provincial(Franja miFranja, Llamada unaLlamada) : this(unaLlamada.NroOrigen, miFranja, unaLlamada.Duracion, unaLlamada.NroDestino)
+        public Provincial(Franja miFranja, Llamada unaLlamada) : 
+            this(unaLlamada.NroOrigen, miFranja, unaLlamada.Duracion, unaLlamada.NroDestino)
         {
              
         }
@@ -26,7 +27,7 @@ namespace CentralitaPolimorfismo.Entidades
         public Provincial(string origen, Franja miFranja, float duracion, string destino) : 
             base(origen, destino, duracion)
         {
-
+            this._franjaHoraria = miFranja;
         }
         #endregion
         
@@ -55,11 +56,23 @@ namespace CentralitaPolimorfismo.Entidades
         protected override string Mostrar()
         {
             StringBuilder palabra = new StringBuilder();
+
             palabra.Append(base.Mostrar());
+            palabra.AppendLine();
+            palabra.Append("Llamada Provincial -------------------------");
+            palabra.AppendLine();
             palabra.Append(" - Franja Horaria: ");
             palabra.Append(this._franjaHoraria);
+            palabra.AppendLine();
+            palabra.Append("--------------------------------------------");
+            palabra.AppendLine();
             palabra.Append(" - Costo Llamada: ");
             palabra.Append(this.CostoLlamada);
+            palabra.AppendLine();
+            palabra.Append("--------------------------------------------");
+            palabra.AppendLine();
+            palabra.AppendLine();
+
             return palabra.ToString();
         }
         #endregion
