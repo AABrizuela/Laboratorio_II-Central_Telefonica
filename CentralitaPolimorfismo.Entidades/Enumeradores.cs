@@ -1,4 +1,4 @@
-﻿public enum TipoLLamada
+﻿public enum ETipoLlamada
 {
     Local,
     Provincial,

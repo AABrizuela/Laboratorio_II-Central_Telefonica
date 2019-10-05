@@ -42,15 +42,15 @@ namespace CentralitaPolimorfismo.Entidades
             StringBuilder palabra = new StringBuilder();
 
             palabra.Append(base.Mostrar());
-            palabra.AppendLine();
-            palabra.Append("Llamada Local ------------------------------");
-            palabra.AppendLine();
+            //palabra.AppendLine();
+            //palabra.Append("Llamada Local ------------------------------");
+            //palabra.AppendLine();
             palabra.Append(" - Costo: ");
             palabra.Append(this._costo);
-            palabra.AppendLine();
-            palabra.Append("--------------------------------------------");
-            palabra.AppendLine();
-            palabra.AppendLine();
+            //palabra.AppendLine();
+            //palabra.Append("--------------------------------------------");
+            //palabra.AppendLine();
+            //palabra.AppendLine();
 
             return palabra.ToString();
         }

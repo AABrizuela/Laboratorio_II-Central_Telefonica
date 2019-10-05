@@ -51,10 +51,10 @@ namespace CentralitaPolimorfismo.Entidades
             palabra.Append("Origen: ");
             palabra.Append(this._nroOrigen);
             palabra.AppendLine();
-            palabra.Append("Destino: ");
+            palabra.Append(" - Destino: ");
             palabra.Append(this._nroDestino);
             palabra.AppendLine();
-            palabra.Append("Duracion: ");
+            palabra.Append(" - Duracion: ");
             palabra.Append(this._duracion);
             
 

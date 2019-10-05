@@ -59,19 +59,19 @@ namespace CentralitaPolimorfismo.Entidades
 
             palabra.Append(base.Mostrar());
             palabra.AppendLine();
-            palabra.Append("Llamada Provincial -------------------------");
-            palabra.AppendLine();
+            //palabra.Append("Llamada Provincial -------------------------");
+            //palabra.AppendLine();
             palabra.Append(" - Franja Horaria: ");
             palabra.Append(this._franjaHoraria);
-            palabra.AppendLine();
-            palabra.Append("--------------------------------------------");
-            palabra.AppendLine();
+            //palabra.AppendLine();
+            //palabra.Append("--------------------------------------------");
+            //palabra.AppendLine();
             palabra.Append(" - Costo Llamada: ");
             palabra.Append(this.CostoLlamada);
-            palabra.AppendLine();
-            palabra.Append("--------------------------------------------");
-            palabra.AppendLine();
-            palabra.AppendLine();
+            //palabra.AppendLine();
+            //palabra.Append("--------------------------------------------");
+            //palabra.AppendLine();
+            //palabra.AppendLine();
 
             return palabra.ToString();
         }
@@ -80,7 +80,7 @@ namespace CentralitaPolimorfismo.Entidades
         #region SOBRECARGAS
         public override bool Equals(object obj)
         {
-            return obj is Franja;
+            return obj is Provincial;
         }
 
         public override string ToString()

@@ -32,7 +32,9 @@ namespace CentralitaPoliformismo.Consola
             Console.WriteLine();
 
             Console.WriteLine(telefonica.ToString());
-            
+            Console.WriteLine(telefonica.GananciaPorLocal);
+            Console.WriteLine(telefonica.GananciaPorProvincia);
+            Console.WriteLine(telefonica.GananciaTotal);
             Console.ReadLine();
         }
     }

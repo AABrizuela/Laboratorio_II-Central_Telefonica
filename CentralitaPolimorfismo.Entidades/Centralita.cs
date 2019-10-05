@@ -14,7 +14,7 @@ namespace CentralitaPolimorfismo.Entidades
         #region PROPIEDADES
         public float GananciaPorLocal
         {
-            get => this.CalcularGanancia(TipoLLamada.Local);
+            get => this.CalcularGanancia(ETipoLlamada.Local);
         }
 
         public List<Llamada> Llamadas
@@ -24,12 +24,12 @@ namespace CentralitaPolimorfismo.Entidades
 
         public float GananciaPorProvincia
         {
-            get => this.CalcularGanancia(TipoLLamada.Provincial);
+            get => this.CalcularGanancia(ETipoLlamada.Provincial);
         }
 
         public float GananciaTotal
         {
-            get => this.CalcularGanancia(TipoLLamada.Todas);
+            get => this.CalcularGanancia(ETipoLlamada.Todas);
         }
         #endregion
 
@@ -54,37 +54,36 @@ namespace CentralitaPolimorfismo.Entidades
             }
         }
 
-        private float CalcularGanancia(TipoLLamada tipo)
+        private float CalcularGanancia(ETipoLlamada tipo)
         {
             float retorno = 0;
-            Local localAux = null;
-            Provincial provAux = null;
+            float totalLocal = 0;
+            float totalProvincial = 0;
+            float totalTodas = 0;            
+
+            foreach (Llamada item in _listaDeLlamadas)
+            {
+                if(item is Local)
+                {
+                    totalLocal += item.CostoLlamada;
+                }
+                else
+                {
+                    totalProvincial += item.CostoLlamada;
+                }
+            }
 
             switch (tipo)
             {
-                case TipoLLamada.Local:
-                    foreach(Llamada item in _listaDeLlamadas)
-                    {
-                        if(localAux.Equals(item))
-                        {
-                            retorno = retorno + item.CostoLlamada;
-                        }
-                    }
+                case ETipoLlamada.Local:
+                    retorno = totalLocal;          
                     break;
-                case TipoLLamada.Provincial:
-                    foreach(Llamada item in _listaDeLlamadas)
-                    {
-                        if(provAux.Equals(item))
-                        {
-                            retorno = retorno + item.CostoLlamada;
-                        }
-                    }
+
+                case ETipoLlamada.Provincial:                        
+                    retorno = totalProvincial;
                     break;
-                case TipoLLamada.Todas:
-                    foreach(Llamada item in _listaDeLlamadas)
-                    {
-                        retorno = retorno + item.CostoLlamada;
-                    }
+                case ETipoLlamada.Todas:
+                    retorno = totalLocal + totalProvincial;
                     break;                
             }
             return retorno;
@@ -136,15 +135,11 @@ namespace CentralitaPolimorfismo.Entidades
 
         public static Centralita operator +(Centralita central, Llamada nuevaLlamada)
         {
-            if(central == nuevaLlamada)
-            {
-                Console.WriteLine("ERROR");                
-            }
-            else
+            if(central != nuevaLlamada)
             {
                 central.AgregarLlamada(nuevaLlamada);
             }
-
+            
             return central;
         }
         #endregion

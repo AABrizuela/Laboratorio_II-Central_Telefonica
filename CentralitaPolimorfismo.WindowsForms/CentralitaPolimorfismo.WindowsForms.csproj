@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CentralitaPolimorfismo.Entidades">
+      <HintPath>..\CentralitaPolimorfismo.Entidades\bin\Debug\CentralitaPolimorfismo.Entidades.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -45,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Frm_Local.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Local.Designer.cs">
+      <DependentUpon>Frm_Local.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Centralita.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +65,12 @@
     </Compile>
     <Compile Include="Frm_Llamada.Designer.cs">
       <DependentUpon>Frm_Llamada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Provincial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Provincial.Designer.cs">
+      <DependentUpon>Frm_Provincial.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,12 +85,12 @@
     <EmbeddedResource Include="Frm_Llamada.resx">
       <DependentUpon>Frm_Llamada.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CentralitaTelefonica\CentralitaTelefonica.csproj">
-      <Project>{03386e18-a1dd-4ec6-867a-84ea443064bc}</Project>
-      <Name>CentralitaTelefonica</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="Frm_Local.resx">
+      <DependentUpon>Frm_Local.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Provincial.resx">
+      <DependentUpon>Frm_Provincial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

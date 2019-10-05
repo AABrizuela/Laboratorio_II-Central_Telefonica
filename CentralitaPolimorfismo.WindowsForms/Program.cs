@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CentralitaTelefonica;
+using System.Windows.Forms;
+using CentralitaPolimorfismo.Entidades;
 
 namespace Centralita_WF
 {
@@ -11,6 +12,9 @@ namespace Centralita_WF
     {
         static void Main(string[] args)
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Frm_Centralita());
         }
     }
 }
